@@ -17,6 +17,11 @@
 #include <stdio.h>
 #include "ncurses.h"
 
+char **compare_maps(char **map, char *filepath);
+char **move_boxes_left(char **map);
+char **move_boxes_right(char **map);
+char **move_boxes_down(char **map);
+char **move_boxes_up(char **map);
 char **move_right(char **map);
 char **move_left(char **map);
 char **move_down(char **map);
@@ -27,6 +32,10 @@ char **map_to_arr(char *str);
 void check_map(char *filepath);
 void my_sokoban(char *map);
 
+void free_arr_int(int *arr);
+void free_arr_float(float *arr);
+void free_arr_char(char **arr);
+void free_str(char *str);
 char **my_arrdup_except(char **arr, char *str);
 char **my_arrdup_more(char **arr, int size);
 char **my_arrdup(char **arr);
