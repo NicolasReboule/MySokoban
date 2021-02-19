@@ -37,7 +37,7 @@ void check_map_content_loop(char *str, int *p, int *o, int *x)
     int i = 0;
 
     for (; str[i];) {
-        if (str[i] == 'P' || str[i] == 'X' || str[i] == '0' ||
+        if (str[i] == 'P' || str[i] == 'X' || str[i] == 'O' ||
         str[i] == '#' || str[i] == '\n' || str[i] == ' ')
             i++;
         else {
@@ -46,7 +46,7 @@ void check_map_content_loop(char *str, int *p, int *o, int *x)
         }
         if (str[i] == 'X')
             (*x)++;
-        if (str[i] == '0')
+        if (str[i] == 'O')
             (*o)++;
         if (str[i] == 'P')
             (*p)++;

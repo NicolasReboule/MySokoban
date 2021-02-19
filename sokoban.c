@@ -7,6 +7,19 @@
 
 #include "my.h"
 
+int get_nb_boxes(char **map)
+{
+    int i = 0;
+    int j = 0;
+    int nb_boxes = 0;
+
+    for (; map[j]; j++) {
+        for (i = 0; map[j][i]; i++)
+            (map[j][i] == 'X') ? nb_boxes++ : 0;
+    }
+    return (nb_boxes);
+}
+
 void displayw_arr(char **arr)
 {
     int i = 0;
@@ -47,8 +60,12 @@ void game_loop(char **map, char *filepath)
         if (str_compare(map[my_arrlen(map) - 1], "win")) {
             break;
         }
+        if (str_compare(map[my_arrlen(map) - 1], "lose")) {
+            break;
+        }
         map = check_imputs(map);
         map = compare_maps(map, filepath);
+        map = check_lose(map);
         clear();
         displayw_arr(map);
         refresh();

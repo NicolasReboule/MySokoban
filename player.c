@@ -22,7 +22,7 @@ char **move_left(char **map)
     int x = 0;
     int y = 0;
     get_player_pos(map, &x, &y);
-    if (map[y][x - 1] == ' ' || map[y][x - 1] == '0') {
+    if (map[y][x - 1] == ' ' || map[y][x - 1] == 'O') {
         map[y][x] = ' ';
         map[y][x - 1] = 'P';
     }
@@ -37,7 +37,7 @@ char **move_right(char **map)
     int y = 0;
 
     get_player_pos(map, &x, &y);
-    if (map[y][x + 1] == ' ' || map[y][x + 1] == '0') {
+    if (map[y][x + 1] == ' ' || map[y][x + 1] == 'O') {
         map[y][x] = ' ';
         map[y][x + 1] = 'P';
     }
@@ -52,7 +52,7 @@ char **move_down(char **map)
     int y = 0;
 
     get_player_pos(map, &x, &y);
-    if (map[y + 1][x] == ' ' || map[y + 1][x] == '0') {
+    if (map[y + 1][x] == ' ' || map[y + 1][x] == 'O') {
         map[y][x] = ' ';
         map[y + 1][x] = 'P';
     }
@@ -67,7 +67,7 @@ char **move_up(char **map)
     int y = 0;
 
     get_player_pos(map, &x, &y);
-    if (map[y - 1][x] == ' ' || map[y - 1][x] == '0') {
+    if (map[y - 1][x] == ' ' || map[y - 1][x] == 'O') {
         map[y][x] = ' ';
         map[y - 1][x] = 'P';
     }
