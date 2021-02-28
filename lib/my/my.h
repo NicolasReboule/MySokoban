@@ -17,7 +17,8 @@
 #include <stdio.h>
 #include "ncurses.h"
 
-char **map_lose(char **map, int nb);
+int end(int nb);
+void lose(int nb);
 int get_nb_boxes(char **map);
 char **check_lose(char **map);
 char **compare_maps(char **map, char *filepath);

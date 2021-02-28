@@ -58,7 +58,6 @@ void check_map_content(char *str)
     int p = 0;
     int o = 0;
     int x = 0;
-    char **maparr;
 
     check_map_content_loop(str, &p, &o, &x);
     if (p != 1) {
@@ -73,8 +72,6 @@ void check_map_content(char *str)
         write(2, "Number of boxes and emplacements does not match\n", 47);
         exit(84);
     }
-    maparr = map_to_arr(str);
-    check_borders(maparr);
 }
 
 void check_map(char *filepath)

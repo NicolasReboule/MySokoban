@@ -51,18 +51,14 @@ char **check_imputs(char **map)
     return (map);
 }
 
-void game_loop(char **map, char *filepath)
+char **game_loop(char **map, char *filepath)
 {
     initscr();
     keypad(stdscr, true);
     displayw_arr(map);
     while (1) {
-        if (str_compare(map[my_arrlen(map) - 1], "win")) {
+        if (end(0) != 0)
             break;
-        }
-        if (str_compare(map[my_arrlen(map) - 1], "lose")) {
-            break;
-        }
         map = check_imputs(map);
         map = compare_maps(map, filepath);
         map = check_lose(map);
@@ -71,6 +67,7 @@ void game_loop(char **map, char *filepath)
         refresh();
     }
     endwin();
+    return (map);
 }
 
 void my_sokoban(char *filepath)
@@ -78,5 +75,9 @@ void my_sokoban(char *filepath)
     char **map;
     check_map(filepath);
     map = get_map(filepath);
-    game_loop(map, filepath);
+    map = game_loop(map, filepath);
+    if (end(0) == 1)
+        exit(0);
+    if (end(0) == 2)
+        exit(1);
 }

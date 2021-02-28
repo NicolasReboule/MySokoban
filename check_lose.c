@@ -67,6 +67,6 @@ char **check_lose(char **map)
             }
         }
     }
-    map = map_lose(map, nb_boxes);
+    lose(nb_boxes);
     return (map);
 }

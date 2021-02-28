@@ -7,21 +7,19 @@
 
 #include "my.h"
 
-char **map_lose(char **map, int nb)
+int end(int nb)
 {
-    if (nb <= 0) {
-        if (!str_compare(map[my_arrlen(map)], "win"))
-            map = my_arrdup_more(map, 1);
-        map[my_arrlen(map)] = my_strdup("lose");
-    }
-    return (map);
+    static int i = 0;
+
+    if (nb != 0 && i != 1)
+        i = nb;
+    return (i);
 }
 
-char **map_win(char **map)
+void lose(int nb)
 {
-    map = my_arrdup_more(map, 1);
-    map[my_arrlen(map)] = my_strdup("win");
-    return (map);
+    if (nb <= 0)
+        end(2);
 }
 
 char **compare_maps(char **map, char *filepath)
@@ -44,7 +42,7 @@ char **compare_maps(char **map, char *filepath)
             }
         }
     }
-    map = (nb_places == 0) ? map_win(map) : map;
+    (nb_places == 0) ? end(1) : 0;
     return (map);
 }
 
@@ -59,7 +57,7 @@ char **map_to_arr(char *str)
     }
     res = malloc(sizeof(char *) * (n + 1));
     for (n = 0; str[n] != '\n'; n++);
-    for (i = 0, n++; my_strndup(str, n) !=  NULL; i++) {
+    for (i = 0, n++; my_strndup(str, n) != NULL; i++) {
         for (n = 0; str[n] != '\n'; n++);
         n++;
         res[i] = my_strndup(str, n);
