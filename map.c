@@ -28,7 +28,6 @@ char **compare_maps(char **map, char *filepath)
     int i = 0;
     int j = 0;
     int nb_places = 0;
-
     for (; ori[j]; j++) {
         for (i = 0; ori[j][i]; i++) {
             (ori[j][i] == 'O') ? nb_places++ : 0;
@@ -43,6 +42,7 @@ char **compare_maps(char **map, char *filepath)
         }
     }
     (nb_places == 0) ? end(1) : 0;
+    frieza("%C", ori);
     return (map);
 }
 
@@ -80,5 +80,6 @@ char **get_map(char *filepath)
     read(fd, buffer, stats.st_size);
     close(fd);
     map = map_to_arr(buffer);
+    frieza("%s", buffer);
     return (map);
 }

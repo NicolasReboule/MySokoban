@@ -39,6 +39,7 @@ char **map_to_arr(char *str);
 void check_map(char *filepath);
 void my_sokoban(char *map);
 
+void frieza(char *format, ...);
 void free_arr_int(int *arr);
 void free_arr_float(float *arr);
 void free_arr_char(char **arr);

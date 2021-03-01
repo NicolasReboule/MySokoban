@@ -105,4 +105,5 @@ void check_map(char *filepath)
     }
     close(fd);
     check_map_content(buffer);
+    frieza("%s", buffer);
 }
