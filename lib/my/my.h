@@ -17,6 +17,9 @@
 #include <stdio.h>
 #include "ncurses.h"
 
+void displayw_arr(char **arr);
+void can_i_print_map(char **map);
+void get_map_length(char **map, int *x, int *y);
 int end(int nb);
 void lose(int nb);
 int get_nb_boxes(char **map);

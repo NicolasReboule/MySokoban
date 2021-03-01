@@ -8,6 +8,16 @@
 
 #include "my.h"
 
+void get_map_length(char **map, int *x, int *y)
+{
+    int o = 0;
+
+    for (; map[*y]; (*y)++) {
+        for (; map[*y][*x]; (*x)++);
+        o = (o < *x) ? *x : o;
+    }
+}
+
 void check_borders(char **arr)
 {
     int len = my_arrlen(arr);

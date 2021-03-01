@@ -51,23 +51,27 @@ char **check_imputs(char **map)
     return (map);
 }
 
-char **game_loop(char **map, char *filepath)
+void game_loop(char **map, char *filepath)
 {
+    int x = 0;
+    int y = 0;
     initscr();
     keypad(stdscr, true);
-    displayw_arr(map);
+    get_map_length(map, &x, &y);
+    can_i_print_map(map);
     while (1) {
         if (end(0) != 0)
             break;
         map = check_imputs(map);
         map = compare_maps(map, filepath);
         map = check_lose(map);
-        clear();
-        displayw_arr(map);
+            clear();
+        if (COLS < x || LINES < y)
+            mvprintw((LINES / 2), (COLS / 2) - 7, "Map can't fit");
+        else
+            displayw_arr(map);
         refresh();
     }
-    endwin();
-    return (map);
 }
 
 void my_sokoban(char *filepath)
@@ -75,7 +79,8 @@ void my_sokoban(char *filepath)
     char **map;
     check_map(filepath);
     map = get_map(filepath);
-    map = game_loop(map, filepath);
+    game_loop(map, filepath);
+    endwin();
     if (end(0) == 1)
         exit(0);
     if (end(0) == 2)
