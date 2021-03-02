@@ -67,7 +67,7 @@ void game_loop(char **map, char *filepath)
         map = check_lose(map);
             clear();
         if (COLS < x || LINES < y)
-            mvprintw((LINES / 2), (COLS / 2) - 7, "Map can't fit");
+            mvprintw((LINES / 2), (COLS / 2) - 14, MSG);
         else
             displayw_arr(map);
         refresh();

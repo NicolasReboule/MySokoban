@@ -52,19 +52,10 @@ char **check_lose(char **map)
     int nb_boxes = 0;
     int i = 0;
     int j = 0;
-    int nb = 0;
     nb_boxes = get_nb_boxes(map);
     for (j = 0; map[j]; j++) {
         for (i = 0; map[j][i]; i++) {
-            if (map[j][i] == 'X') {
-                nb = check_1(map, &j, &i, &nb_boxes);
-                if (!nb)
-                    nb = check_2(map, &j, &i, &nb_boxes);
-                if (!nb)
-                    nb = check_3(map, &j, &i, &nb_boxes);
-                if (!nb)
-                    nb = check_4(map, &j, &i, &nb_boxes);
-            }
+            check_lose_check(i, j, map, &nb_boxes);
         }
     }
     lose(nb_boxes);

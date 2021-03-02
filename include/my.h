@@ -17,6 +17,13 @@
 #include <stdio.h>
 #include "ncurses.h"
 
+#define MSG "Please enlarge the terminal"
+
+int check_4(char **map, int *j, int *i, int *nb_boxes);
+int check_3(char **map, int *j, int *i, int *nb_boxes);
+int check_2(char **map, int *j, int *i, int *nb_boxes);
+int check_1(char **map, int *j, int *i, int *nb_boxes);
+void check_lose_check(int i, int j, char **map, int *nb_boxes);
 void displayw_arr(char **arr);
 void can_i_print_map(char **map);
 void get_map_length(char **map, int *x, int *y);

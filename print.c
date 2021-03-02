@@ -16,5 +16,5 @@ void can_i_print_map(char **map)
     if (COLS >= x && LINES >= y)
         displayw_arr(map);
     else
-        mvprintw((LINES / 2), (COLS / 2) - 7, "Map can't fit");
+        mvprintw((LINES / 2), (COLS / 2) - 14, MSG);
 }
