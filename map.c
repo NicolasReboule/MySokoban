@@ -62,7 +62,7 @@ char **map_to_arr(char *str)
         res[i] = my_strndup(str, n);
         str += n;
     }
-    res[i - 1][my_strlen(res[i - 1]) - 1] = '\0';
+    res[i - 1][my_strlen(res[i - 1])] = '\0';
     res[i] = NULL;
     return (res);
 }
