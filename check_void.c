@@ -39,15 +39,10 @@ int check_void_3(char **map, int *j, int *i, int *nb_boxes)
 
 int check_void_2(char **map, int *j, int *i, int *nb_boxes)
 {
-    int nb = 0;
-    if (map[(*j) - 1][(*i)] == '#' || map[(*j) - 1][(*i)] == 'X')
-        nb++;
-    if ((*j) - 1  < 0)
-        nb++;
-    else if (map[(*j)][(*i) + 1] == '#' || map[(*j)][(*i) + 1] == 'X' ||
-    map[(*j)][(*i) + 1] == '\n' || map[(*j)][(*i) + 1] == '\0')
-        nb++;
-    if (nb == 2) {
+    if (((*j) - 1  < 0 || map[(*j) - 1][(*i)] == '#' ||
+    map[(*j) - 1][(*i)] == 'X') && (map[(*j)][(*i) + 1] == '#' ||
+    map[(*j)][(*i) + 1] == 'X' || map[(*j)][(*i) + 1] == '\n' ||
+    map[(*j)][(*i) + 1] == '\0')) {
         (*nb_boxes)--;
         return (1);
     }
