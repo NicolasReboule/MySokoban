@@ -82,9 +82,9 @@ void my_sokoban(char *filepath)
     game_loop(map, filepath);
     delwin(stdscr);
     endwin();
+    frieza("%C", map);
     if (end(0) == 1)
         exit(0);
     if (end(0) == 2)
         exit(1);
-    frieza("%C", map);
 }

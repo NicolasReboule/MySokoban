@@ -7,8 +7,18 @@
 
 SRC	=	$(wildcard *.c)
 
-SRC_TEST=	truc.c \
-			tests/test_truc.c
+SRC_TEST=	map.c \
+			boxes.c \
+			check_lose.c \
+			check_void.c \
+			map_errors.c \
+			player.c \
+			print.c \
+			sokoban.c \
+			tests/tests_sokoban_map.c \
+			tests/tests_sokoban_player.c \
+			tests/tests_sokoban_boxes.c \
+			tests/tests_sokoban_check_lose.c
 
 CFLAGS	=	-W -Werror -Wall -Wextra -g
 
@@ -30,7 +40,7 @@ all:
 
 tests_run:
 	make -C lib/my all
-	gcc -o $(NAME_TEST) $(SRC_TEST) $(IFLAGS) $(LFLAGS) $(CFLAGS) $(CRIFLAGS)
+	gcc -o $(NAME_TEST) $(SRC_TEST) $(IFLAGS) $(LFLAGS) $(CFLAGS) $(CRIFLAGS) $(NFLAGS)
 	./$(NAME_TEST)
 
 clean:
