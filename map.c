@@ -42,7 +42,6 @@ char **compare_maps(char **map, char *filepath)
         }
     }
     (nb_places == 0) ? end(1) : 0;
-    frieza("%C", ori);
     return (map);
 }
 
@@ -63,6 +62,7 @@ char **map_to_arr(char *str)
         res[i] = my_strndup(str, n);
         str += n;
     }
+    res[i - 1][my_strlen(res[i - 1]) - 1] = '\0';
     res[i] = NULL;
     return (res);
 }
