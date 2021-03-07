@@ -21,7 +21,10 @@ char **move_left(char **map)
 {
     int x = 0;
     int y = 0;
+
     get_player_pos(map, &x, &y);
+    if (x - 1 < 0)
+        return (map);
     if (map[y][x - 1] == ' ' || map[y][x - 1] == 'O') {
         map[y][x] = ' ';
         map[y][x - 1] = 'P';
@@ -52,6 +55,8 @@ char **move_down(char **map)
     int y = 0;
 
     get_player_pos(map, &x, &y);
+    if (y + 1 > my_arrlen(map) - 1)
+        return (map);
     if (map[y + 1][x] == ' ' || map[y + 1][x] == 'O') {
         map[y][x] = ' ';
         map[y + 1][x] = 'P';
@@ -67,6 +72,8 @@ char **move_up(char **map)
     int y = 0;
 
     get_player_pos(map, &x, &y);
+    if (y - 1 < 0)
+        return (map);
     if (map[y - 1][x] == ' ' || map[y - 1][x] == 'O') {
         map[y][x] = ' ';
         map[y - 1][x] = 'P';

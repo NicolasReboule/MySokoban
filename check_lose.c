@@ -7,44 +7,18 @@
 
 #include "my.h"
 
-int check_4(char **map, int *j, int *i, int *nb_boxes)
+void check_lose_check(int i, int j, char **map, int *nb_boxes)
 {
-    if ((map[(*j) + 1][(*i)] == '#' || map[(*j) + 1][(*i)] == 'X') &&
-        (map[(*j)][(*i) + 1] == '#' || map[(*j)][(*i) + 1] == 'X')) {
-        (*nb_boxes)--;
-        return (1);
+    if (map[j][i] == 'X') {
+        if (check_void_4(map, &j, &i, nb_boxes))
+            return;
+        if (check_void_3(map, &j, &i, nb_boxes))
+            return;
+        if (check_void_1(map, &j, &i, nb_boxes))
+            return;
+        if (check_void_2(map, &j, &i, nb_boxes))
+            return;
     }
-    return (0);
-}
-
-int check_3(char **map, int *j, int *i, int *nb_boxes)
-{
-    if ((map[(*j) + 1][(*i)] == '#' || map[(*j) + 1][(*i)] == 'X') &&
-        (map[(*j)][(*i) - 1] == '#' || map[(*j)][(*i) - 1] == 'X')) {
-        (*nb_boxes)--;
-        return (1);
-    }
-    return (0);
-}
-
-int check_2(char **map, int *j, int *i, int *nb_boxes)
-{
-    if ((map[(*j) - 1][(*i)] == '#' || map[(*j) - 1][(*i)] == 'X') &&
-        (map[(*j)][(*i) + 1] == '#' || map[(*j)][(*i) + 1] == 'X')) {
-        (*nb_boxes)--;
-        return (1);
-    }
-    return (0);
-}
-
-int check_1(char **map, int *j, int *i, int *nb_boxes)
-{
-    if ((map[(*j) - 1][(*i)] == '#' || map[(*j) - 1][(*i)] == 'X') &&
-        (map[(*j)][(*i) - 1] == '#' || map[(*j)][(*i) - 1] == 'X')) {
-        (*nb_boxes)--;
-        return (1);
-    }
-    return (0);
 }
 
 char **check_lose(char **map)

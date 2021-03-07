@@ -19,6 +19,10 @@
 
 #define MSG "Please enlarge the terminal"
 
+int check_void_4(char **map, int *j, int *i, int *nb_boxes);
+int check_void_3(char **map, int *j, int *i, int *nb_boxes);
+int check_void_2(char **map, int *j, int *i, int *nb_boxes);
+int check_void_1(char **map, int *j, int *i, int *nb_boxes);
 int check_4(char **map, int *j, int *i, int *nb_boxes);
 int check_3(char **map, int *j, int *i, int *nb_boxes);
 int check_2(char **map, int *j, int *i, int *nb_boxes);

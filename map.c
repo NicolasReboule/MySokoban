@@ -56,9 +56,9 @@ char **map_to_arr(char *str)
             n++;
     }
     res = malloc(sizeof(char *) * (n + 1));
-    for (n = 0; str[n] != '\n'; n++);
+    for (n = 0; str[n] != '\n' && str[n] != '\0'; n++);
     for (i = 0, n++; my_strndup(str, n) != NULL; i++) {
-        for (n = 0; str[n] != '\n'; n++);
+        for (n = 0; str[n] != '\n' && str[n] != '\0'; n++);
         n++;
         res[i] = my_strndup(str, n);
         str += n;
